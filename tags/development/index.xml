@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on melkorm&#39;s blog</title>
+    <link>https://melkorm.github.io/tags/development/</link>
+    <description>Recent content in Development on melkorm&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>melkorm</copyright>
+    <lastBuildDate>Sat, 19 Mar 2016 14:02:37 +0200</lastBuildDate>
+    <atom:link href="https://melkorm.github.io/tags/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tips for first steps with GO</title>
+      <link>https://melkorm.github.io/2016/03/19/the-beginning/</link>
+      <pubDate>Sat, 19 Mar 2016 14:02:37 +0200</pubDate>
+      
+      <guid>https://melkorm.github.io/2016/03/19/the-beginning/</guid>
+      <description>
+
+&lt;h2 id=&#34;introduction:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;With this posts I want to highlight few things when staring with GO for new people which sometimes doesn&amp;rsquo;t seem so straight forward after reading &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;https://golang.org/doc/install&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;first:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;First&lt;/h2&gt;
+
+&lt;p&gt;Install GO&amp;rsquo;s version 1.6+ there is no point to use any previous versions as with 1.6 version GO added vendor support (experimental in 1.5). What does it mean ? That dependencies are tight to a project not a global GO&amp;rsquo;s dependency catalog.&lt;/p&gt;
+
+&lt;p&gt;If you come from &lt;strong&gt;PHP&lt;/strong&gt; world you can compare it to &lt;em&gt;global&lt;/em&gt; command for &lt;strong&gt;composer&lt;/strong&gt; - yes, prior 1.5 and vendor support all go&amp;rsquo;s dependencies were installed as &lt;em&gt;global&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;PS. If you are looking for GO&amp;rsquo;s dependency management system see &lt;a href=&#34;https://github.com/Masterminds/glide&#34;&gt;glide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;second:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;Second&lt;/h2&gt;
+
+&lt;p&gt;Make your &lt;strong&gt;$GOPATH&lt;/strong&gt; next after installing GO bins - and accept it&amp;rsquo;s structure, personally it&amp;rsquo;s not great, but it doesn&amp;rsquo;t do much harm.&lt;/p&gt;
+
+&lt;h2 id=&#34;third:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;Third&lt;/h2&gt;
+
+&lt;p&gt;Remember - looping over array / slice does the &lt;strong&gt;copy&lt;/strong&gt;, so:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+
+import &amp;quot;fmt&amp;quot;
+
+func main() {
+  someArray := []int{1, 2, 3}
+  for _, n := range someArray {
+   // this won&#39;t work
+   n = 6
+   // without this we will get &amp;quot;n declared and not used&amp;quot; error
+   // so it should rise a thought that we do something wrong here
+   fmt.Println(n) 
+  }
+  fmt.Println(someArray)
+  for key, _ := range someArray {
+    // but this will
+    someArray[key] = 6
+    fmt.Println(key, someArray[key])
+  }
+  fmt.Println(someArray)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;fourth:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;Fourth&lt;/h2&gt;
+
+&lt;p&gt;Accept GO&amp;rsquo;s &lt;em&gt;&amp;ldquo;n declared and not used&amp;rdquo;&lt;/em&gt; design concept - GO doesn&amp;rsquo;t like unused variables, that&amp;rsquo;s why you&amp;rsquo;ve seen &amp;ldquo;&lt;strong&gt;_&lt;/strong&gt;&amp;rdquo; in previous code. It&amp;rsquo;s like saying &lt;strong&gt;echo &amp;ldquo;my variable&amp;rdquo; &amp;gt; /dev/null&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;PS. I find it a bit annoying when playing with some ideas &amp;amp; code.&lt;/p&gt;
+
+&lt;h2 id=&#34;fifth-and-last:fc849c98c1fe4355cae7cfd24958a78d&#34;&gt;Fifth, and last&lt;/h2&gt;
+
+&lt;p&gt;Use editor with support for &lt;a href=&#34;https://golang.org/cmd/gofmt/&#34;&gt;gofmt&lt;/a&gt; which will cover almost all issues mentioned here: &lt;a href=&#34;https://github.com/golang/go/wiki/CodeReviewComments&#34;&gt;https://github.com/golang/go/wiki/CodeReviewComments&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus pluggin&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

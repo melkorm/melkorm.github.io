@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Abouts on melkorm&#39;s blog</title>
+    <link>https://melkorm.github.io/about/</link>
+    <description>Recent content in Abouts on melkorm&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>melkorm</copyright>
+    <lastBuildDate>Sat, 19 Mar 2016 14:02:37 +0200</lastBuildDate>
+    <atom:link href="https://melkorm.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About meh</title>
+      <link>https://melkorm.github.io/about/</link>
+      <pubDate>Sat, 19 Mar 2016 14:02:37 +0200</pubDate>
+      
+      <guid>https://melkorm.github.io/about/</guid>
+      <description>&lt;p&gt;Programmer since &lt;strong&gt;2002&lt;/strong&gt; when I wrote my first program in &lt;strong&gt;TurboPascal&lt;/strong&gt;, of course it was a &lt;strong&gt;calculator&lt;/strong&gt; - who would write anything else back then ?
+Serious programming started around my 1st year at studies when I took my first job - taking care of Polish biggest club portal.&lt;/p&gt;
+
+&lt;p&gt;Mostly I code in &lt;strong&gt;PHP&lt;/strong&gt; . Tho I like to code in &lt;strong&gt;GO&lt;/strong&gt; and &lt;strong&gt;Python&lt;/strong&gt;, sometimes in &lt;strong&gt;Bash&lt;/strong&gt; when the hammer is needed.&lt;/p&gt;
+
+&lt;p&gt;What this blog will be about ? Hell no idea, will update this section when I  have an idea!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
