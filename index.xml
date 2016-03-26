@@ -21,7 +21,7 @@ Serious programming started around my 1st year at studies when I took my first j
 
 &lt;p&gt;Mostly I code in &lt;strong&gt;PHP&lt;/strong&gt; . Tho I like to code in &lt;strong&gt;GO&lt;/strong&gt; and &lt;strong&gt;Python&lt;/strong&gt;, sometimes in &lt;strong&gt;Bash&lt;/strong&gt; when the hammer is needed.&lt;/p&gt;
 
-&lt;p&gt;What this blog will be about ? Hell no idea, will update this section when I  have an idea!&lt;/p&gt;
+&lt;p&gt;What this blog will be about ? Hell no idea, will update this section when I have an one!&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt;&lt;/p&gt;
 </description>
@@ -66,7 +66,7 @@ func main() {
    n = 6
    // without this we will get &amp;quot;n declared and not used&amp;quot; error
    // so it should rise a thought that we do something wrong here
-   fmt.Println(n) 
+   fmt.Println(n)
   }
   fmt.Println(someArray)
   for key, _ := range someArray {
@@ -88,7 +88,7 @@ func main() {
 
 &lt;p&gt;Use editor with support for &lt;a href=&#34;https://golang.org/cmd/gofmt/&#34;&gt;gofmt&lt;/a&gt; which will cover almost all issues mentioned here: &lt;a href=&#34;https://github.com/golang/go/wiki/CodeReviewComments&#34;&gt;https://github.com/golang/go/wiki/CodeReviewComments&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus pluggin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus plugin&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

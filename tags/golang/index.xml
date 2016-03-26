@@ -49,7 +49,7 @@ func main() {
    n = 6
    // without this we will get &amp;quot;n declared and not used&amp;quot; error
    // so it should rise a thought that we do something wrong here
-   fmt.Println(n) 
+   fmt.Println(n)
   }
   fmt.Println(someArray)
   for key, _ := range someArray {
@@ -71,7 +71,7 @@ func main() {
 
 &lt;p&gt;Use editor with support for &lt;a href=&#34;https://golang.org/cmd/gofmt/&#34;&gt;gofmt&lt;/a&gt; which will cover almost all issues mentioned here: &lt;a href=&#34;https://github.com/golang/go/wiki/CodeReviewComments&#34;&gt;https://github.com/golang/go/wiki/CodeReviewComments&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus pluggin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus plugin&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
