@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  	<meta property="og:title" content=" Testing PHP code against more PHP versions &middot;  melkorm&#39;s blog" />
+  	<meta property="og:site_name" content="melkorm&#39;s blog" />
+  	<meta property="og:url" content="https://melkorm.github.io/2016/04/10/gitlab-runner-and-php/" />
+
+    
+  	<meta property="og:type" content="article" />
+
+    <meta property="og:article:published_time" content="2016-04-10T00:00:00Z" />
+
+    
+    <meta property="og:article:tag" content="php" />
+    
+    <meta property="og:article:tag" content="docker" />
+    
+    <meta property="og:article:tag" content="testing" />
+    
+    <meta property="og:article:tag" content="gitlab" />
+    
+    
+
+  <title>
+     Testing PHP code against more PHP versions &middot;  melkorm&#39;s blog
+  </title>
+
+    <meta name="description" content="Passionate, problem solving crazy beard wearer" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://melkorm.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://melkorm.github.io/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="https://melkorm.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://melkorm.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Inconsolata" />
+
+
+    
+      
+          <link href="https://melkorm.github.io/index.xml" rel="alternate" type="application/rss+xml" title="melkorm&#39;s blog" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.15" />
+
+    <link rel="canonical" href="https://melkorm.github.io/2016/04/10/gitlab-runner-and-php/" />
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-65234278-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about/">About</a>
+            </li>
+        
+    </ul>
+    
+    
+    <a class="subscribe-button icon-feed" href="https://melkorm.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head" style="background-image: url(https://melkorm.github.io//img/post/gitlab-tests.png)">
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://melkorm.github.io/"><img src="https://melkorm.github.io//img/avatar.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Testing PHP code against more PHP versions</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-04-10T00:00:00Z">
+            Apr 10, 2016
+          </time>
+        
+         
+          <span class="post-tag small"><a href="https://melkorm.github.io/tags/php/">#php</a></span>
+         
+          <span class="post-tag small"><a href="https://melkorm.github.io/tags/docker/">#docker</a></span>
+         
+          <span class="post-tag small"><a href="https://melkorm.github.io/tags/testing/">#testing</a></span>
+         
+          <span class="post-tag small"><a href="https://melkorm.github.io/tags/gitlab/">#gitlab</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>As PHP grows, more versions show up with better stability &amp; performance, obviously
+we test our code against production environment, but what if we could test it against
+new versions with little effort and ensure soft migration ?</p>
+
+<p>Here we will use Docker &amp; Gitlab runners power to ensure that our PHP code runs on
+those versions: 5.5, 5.6 and 7.0.</p>
+
+<p>We&rsquo;ll use our own <a href="https://hub.docker.com/r/melkorm/php-docker/">Docker images</a>
+with configured additional extensions not provided by PHP official images, also
+with installed GIT and newest composer out of the box.</p>
+
+<h2 id="what-is-gitlab-gitlab:296cba53251db632d9dc06c005ed486b">What is <a href="https://gitlab.com">Gitlab</a></h2>
+
+<p>Gitlab is yet another git projects hosting platform staying that it will be free <strong>forever</strong>.
+How does it differ from Github or Bitbucket ?</p>
+
+<ul>
+<li>no limits on public / private repos and users, more info <a href="https://about.gitlab.com/gitlab-com/">here</a></li>
+<li>no <strong>PRs</strong> (pull requests), but <strong>MR</strong> (merge requests) - more details <a href="http://stackoverflow.com/a/29951658/947238">here</a></li>
+<li><strong>Gitlab runners</strong> - tool to run builds on external machines, using host itself or docker - in this series we will speak only about docker runners.
+Runner can be either public (provided by Gitlab) or private - setup on external machine. <em>In this example we will use Gitlab&rsquo;s public runners.</em></li>
+</ul>
+
+<h2 id="preparations:296cba53251db632d9dc06c005ed486b">Preparations</h2>
+
+<ul>
+<li>Create an account on <a href="https://gitlab.com/">https://gitlab.com/</a></li>
+<li>Fork example repository <a href="https://gitlab.com/melkorm/php-testing">https://gitlab.com/melkorm/php-testing</a></li>
+</ul>
+
+<p>If you want to see how it works / looks like then make some change in source and build will be automatically run against your changes.</p>
+
+<h2 id="gitlab-ci-yml-config:296cba53251db632d9dc06c005ed486b">.gitlab-ci.yml config</h2>
+
+<p>First we need a config for our Gitlab runner. It is a configuration file written in YAML format,
+for full specification see <a href="http://doc.gitlab.com/ee/ci/yaml/README.html">docs</a></p>
+
+<script src="https://gist.github.com/melkorm/24e401fc7452c4ef4980b6cd12fe2ab2.js"></script>
+
+<p>Let&rsquo;s go trough the config for details:</p>
+
+<h4 id="variables-section-where-we-specify-env-variables-which-will-be-available-for-all-running-scripts:296cba53251db632d9dc06c005ed486b">Variables, section where we specify <em>env</em> variables which will be available for all running scripts</h4>
+
+<script src="https://gist.github.com/melkorm/677107aeb17ef5cb64bd8cb15b6c88f2.js"></script>
+
+<ul>
+<li><code>COMPOSER_CACHE_DIR</code> - we want to cache composer libraries across builds, we don&rsquo;t want to pull all the dependencies for each build,</li>
+<li><code>COMPOSER_DISABLE_XDEBUG_WARN</code> - disabling composer&rsquo;s xdebug warn so it doesn&rsquo;t mess with our tests output,</li>
+<li><code>COMPOSER_VENDOR_DIR</code> - here we setup custom directory for composer&rsquo;s vendor dir,</li>
+<li><code>CI_PROJECT_ID</code> and <code>CI_BUILD_REF_NAME</code> are provided by Gitlab, you can read more about available variables <a href="http://doc.gitlab.com/ce/ci/variables/README.html">here</a>
+
+<ul>
+<li><code>CI_PROJECT_ID</code> - this is ID of our project,</li>
+<li><code>CI_BUILD_REF_NAME</code> - The branch or tag name for which project is built.</li>
+</ul></li>
+</ul>
+
+<h4 id="stages-section-when-we-specify-groups-of-tasks-to-be-executed-you-can-think-about-it-as-a-pipeline-for-example-test-build-deploy:296cba53251db632d9dc06c005ed486b">Stages, section when we specify groups of tasks to be executed, you can think about it as a pipeline, for example: test, build, deploy.</h4>
+
+<script src="https://gist.github.com/melkorm/a2a3ea3c2fe88989da09f5dcf4ecd16c.js"></script>
+
+<p>We only specify <em>test</em> as this is our only stage in this scenario.</p>
+
+<h4 id="jobs:296cba53251db632d9dc06c005ed486b">Jobs</h4>
+
+<script src="https://gist.github.com/melkorm/3de2cd584dc9b11db462d3434d315b39.js"></script>
+
+<ul>
+<li>test55 - job name</li>
+<li>image - docker image pulled from <a href="https://hub.docker.com/">Docker Hub</a></li>
+<li>stage - to which stage task belongs to</li>
+<li>script - list of commands to execute</li>
+</ul>
+
+<p><code>mkdir -p /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME}</code> -
+Here we prepare storage for composer&rsquo;s dependencies</p>
+
+<p><code>ln -s /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME} vendor</code> -
+link the storage to vendor in our app directory</p>
+
+<p><code>make</code> - run our make script to install dependencies and run tests.</p>
+
+<h2 id="php-testing:296cba53251db632d9dc06c005ed486b">PHP Testing</h2>
+
+<p><strong>Makefile</strong> - quickly adds console for repetitive tasks done with our application from command line, like:</p>
+
+<ul>
+<li>installing dependencies</li>
+<li>testing</li>
+<li>building</li>
+<li>releasing</li>
+<li>and many more.</li>
+</ul>
+
+<p>Example <strong>Makefile</strong>:</p>
+
+<script src="https://gist.github.com/melkorm/43bbad2b471da9bf7a316c610d9f8b14.js"></script>
+structure is:
+<script src="https://gist.github.com/melkorm/07a1c94fb37087e194d815b9f3f9b678.js"></script>
+
+<p>if you run make without params it will run first command.</p>
+
+<p>Now we can call <code>$ make</code> and <code>test</code> will execute after <code>composer</code>, example output:</p>
+
+<script src="https://gist.github.com/melkorm/be8688d57d0b06edabb27188b56de56a.js"></script>
+
+<p>You can see example build &amp; output <a href="https://gitlab.com/melkorm/php-testing/builds/1038812">here</a></p>
+
+<h2 id="wrap-up:296cba53251db632d9dc06c005ed486b">Wrap up</h2>
+
+<p>As you can see it is easy to test your code against many PHP versions.
+All you need is Gitlab and Docker image supporting your stack. Of course you don&rsquo;t
+need to use Gitlab, you can configure your Jenkins or any other build tool to test
+your code on different Docker images. We like Gitlab as this offers many features
+out of the box with little effort. So if you start a new project,
+or want to automate testing with current one - try Gitlab as it might be the right tool
+for you.</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="https://melkorm.github.io/" style="background-image: url(https://melkorm.github.io//img/avatar.jpg)"><span class="hidden">'s Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="https://melkorm.github.io/">melkorm</a></h4>
+  
+  <p>Read <a href="https://melkorm.github.io/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Testing%20PHP%20code%20against%20more%20PHP%20versions&amp;url=https%3a%2f%2fmelkorm.github.io%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fmelkorm.github.io%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=https%3a%2f%2fmelkorm.github.io%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'melkorm';
+  var disqus_url = 'https:\/\/melkorm.github.io\/2016\/04\/10\/gitlab-runner-and-php\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">melkorm&#39;s blog</a> melkorm</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="https://melkorm.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://melkorm.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://melkorm.github.io/js/index.js"></script>
+    
+</body>
+</html>
+

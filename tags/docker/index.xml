@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>melkorm&#39;s blog</title>
-    <link>https://melkorm.github.io/</link>
-    <description>Recent content on melkorm&#39;s blog</description>
+    <title>Docker on melkorm&#39;s blog</title>
+    <link>https://melkorm.github.io/tags/docker/</link>
+    <description>Recent content in Docker on melkorm&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>melkorm</copyright>
     <lastBuildDate>Sun, 10 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://melkorm.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://melkorm.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Testing PHP code against more PHP versions</title>
@@ -135,65 +135,6 @@ your code on different Docker images. We like Gitlab as this offers many feature
 out of the box with little effort. So if you start a new project,
 or want to automate testing with current one - try Gitlab as it might be the right tool
 for you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>About meh</title>
-      <link>https://melkorm.github.io/about/</link>
-      <pubDate>Sat, 19 Mar 2016 14:02:37 +0200</pubDate>
-      
-      <guid>https://melkorm.github.io/about/</guid>
-      <description>&lt;p&gt;Programmer since &lt;strong&gt;2002&lt;/strong&gt; when I wrote my first program in &lt;strong&gt;TurboPascal&lt;/strong&gt;, of course it was a &lt;strong&gt;calculator&lt;/strong&gt; - who would write anything else back then ?
-Serious programming started around my 1st year at studies when I took my first job - taking care of Polish biggest club portal.&lt;/p&gt;
-
-&lt;p&gt;Mostly I code in &lt;strong&gt;PHP&lt;/strong&gt; . Tho I like to code in &lt;strong&gt;GO&lt;/strong&gt; and &lt;strong&gt;Python&lt;/strong&gt;, sometimes in &lt;strong&gt;Bash&lt;/strong&gt; when the hammer is needed.&lt;/p&gt;
-
-&lt;p&gt;What this blog will be about ? Hell no idea, will update this section when I have one!&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Tips for first steps with GO</title>
-      <link>https://melkorm.github.io/2016/03/19/tips-for-first-steps-with-go/</link>
-      <pubDate>Sat, 19 Mar 2016 14:02:37 +0200</pubDate>
-      
-      <guid>https://melkorm.github.io/2016/03/19/tips-for-first-steps-with-go/</guid>
-      <description>
-
-&lt;p&gt;With this posts I want to highlight few things when staring with GO for new people which sometimes doesn&amp;rsquo;t seem so straight forward after reading &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;https://golang.org/doc/install&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;1:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#1&lt;/h2&gt;
-
-&lt;p&gt;Install GO&amp;rsquo;s version 1.6+ there is no point to use any previous versions as with 1.6 version GO added vendor support (experimental in 1.5). What does it mean ? That dependencies are tight to a project not a global GO&amp;rsquo;s dependency catalog.&lt;/p&gt;
-
-&lt;p&gt;If you come from &lt;strong&gt;PHP&lt;/strong&gt; world you can compare it to &lt;em&gt;global&lt;/em&gt; command for &lt;strong&gt;composer&lt;/strong&gt; - yes, prior 1.5 and vendor support all go&amp;rsquo;s dependencies were installed as &lt;em&gt;global&lt;/em&gt;.&lt;/p&gt;
-
-&lt;p&gt;PS. If you are looking for GO&amp;rsquo;s dependency management system see &lt;a href=&#34;https://github.com/Masterminds/glide&#34;&gt;glide&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;2:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#2&lt;/h2&gt;
-
-&lt;p&gt;Make your &lt;strong&gt;$GOPATH&lt;/strong&gt; next after installing GO bins - and accept it&amp;rsquo;s structure, personally it&amp;rsquo;s not great, but it doesn&amp;rsquo;t do much harm.&lt;/p&gt;
-
-&lt;h2 id=&#34;3:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#3&lt;/h2&gt;
-
-&lt;p&gt;Remember - looping over array / slice does the &lt;strong&gt;copy&lt;/strong&gt;, so:&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/721aa848513b2df1e484f8536d4b5f54.js&#34;&gt;&lt;/script&gt;
-
-&lt;h2 id=&#34;4:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#4&lt;/h2&gt;
-
-&lt;p&gt;Accept GO&amp;rsquo;s &lt;em&gt;&amp;ldquo;n declared and not used&amp;rdquo;&lt;/em&gt; design concept - GO doesn&amp;rsquo;t like unused variables, that&amp;rsquo;s why you&amp;rsquo;ve seen &amp;ldquo;&lt;strong&gt;_&lt;/strong&gt;&amp;rdquo; in previous code. It&amp;rsquo;s like saying &lt;code&gt;echo &amp;quot;my variable&amp;quot; &amp;gt; /dev/null&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;PS. I find it a bit annoying when playing with some ideas &amp;amp; code.&lt;/p&gt;
-
-&lt;h2 id=&#34;5:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#5&lt;/h2&gt;
-
-&lt;p&gt;Use editor with support for &lt;a href=&#34;https://golang.org/cmd/gofmt/&#34;&gt;gofmt&lt;/a&gt; which will cover almost all issues mentioned here: &lt;a href=&#34;https://github.com/golang/go/wiki/CodeReviewComments&#34;&gt;https://github.com/golang/go/wiki/CodeReviewComments&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;PS. Personally I use &lt;strong&gt;&lt;a href=&#34;https://atom.io/&#34;&gt;Atom&lt;/a&gt;&lt;/strong&gt; with &lt;a href=&#34;https://github.com/joefitzgerald/go-plus&#34;&gt;go-plus plugin&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

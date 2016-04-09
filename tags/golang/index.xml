@@ -18,11 +18,9 @@
       <guid>https://melkorm.github.io/2016/03/19/tips-for-first-steps-with-go/</guid>
       <description>
 
-&lt;h2 id=&#34;introduction:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;Introduction&lt;/h2&gt;
-
 &lt;p&gt;With this posts I want to highlight few things when staring with GO for new people which sometimes doesn&amp;rsquo;t seem so straight forward after reading &lt;a href=&#34;https://golang.org/doc/install&#34;&gt;https://golang.org/doc/install&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;first:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;First&lt;/h2&gt;
+&lt;h2 id=&#34;1:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#1&lt;/h2&gt;
 
 &lt;p&gt;Install GO&amp;rsquo;s version 1.6+ there is no point to use any previous versions as with 1.6 version GO added vendor support (experimental in 1.5). What does it mean ? That dependencies are tight to a project not a global GO&amp;rsquo;s dependency catalog.&lt;/p&gt;
 
@@ -30,44 +28,23 @@
 
 &lt;p&gt;PS. If you are looking for GO&amp;rsquo;s dependency management system see &lt;a href=&#34;https://github.com/Masterminds/glide&#34;&gt;glide&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;second:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;Second&lt;/h2&gt;
+&lt;h2 id=&#34;2:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#2&lt;/h2&gt;
 
 &lt;p&gt;Make your &lt;strong&gt;$GOPATH&lt;/strong&gt; next after installing GO bins - and accept it&amp;rsquo;s structure, personally it&amp;rsquo;s not great, but it doesn&amp;rsquo;t do much harm.&lt;/p&gt;
 
-&lt;h2 id=&#34;third:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;Third&lt;/h2&gt;
+&lt;h2 id=&#34;3:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#3&lt;/h2&gt;
 
 &lt;p&gt;Remember - looping over array / slice does the &lt;strong&gt;copy&lt;/strong&gt;, so:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;package main
+&lt;script src=&#34;https://gist.github.com/melkorm/721aa848513b2df1e484f8536d4b5f54.js&#34;&gt;&lt;/script&gt;
 
-import &amp;quot;fmt&amp;quot;
+&lt;h2 id=&#34;4:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#4&lt;/h2&gt;
 
-func main() {
-  someArray := []int{1, 2, 3}
-  for _, n := range someArray {
-   // this won&#39;t work
-   n = 6
-   // without this we will get &amp;quot;n declared and not used&amp;quot; error
-   // so it should rise a thought that we do something wrong here
-   fmt.Println(n)
-  }
-  fmt.Println(someArray)
-  for key, _ := range someArray {
-    // but this will
-    someArray[key] = 6
-    fmt.Println(key, someArray[key])
-  }
-  fmt.Println(someArray)
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;fourth:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;Fourth&lt;/h2&gt;
-
-&lt;p&gt;Accept GO&amp;rsquo;s &lt;em&gt;&amp;ldquo;n declared and not used&amp;rdquo;&lt;/em&gt; design concept - GO doesn&amp;rsquo;t like unused variables, that&amp;rsquo;s why you&amp;rsquo;ve seen &amp;ldquo;&lt;strong&gt;_&lt;/strong&gt;&amp;rdquo; in previous code. It&amp;rsquo;s like saying &lt;strong&gt;echo &amp;ldquo;my variable&amp;rdquo; &amp;gt; /dev/null&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Accept GO&amp;rsquo;s &lt;em&gt;&amp;ldquo;n declared and not used&amp;rdquo;&lt;/em&gt; design concept - GO doesn&amp;rsquo;t like unused variables, that&amp;rsquo;s why you&amp;rsquo;ve seen &amp;ldquo;&lt;strong&gt;_&lt;/strong&gt;&amp;rdquo; in previous code. It&amp;rsquo;s like saying &lt;code&gt;echo &amp;quot;my variable&amp;quot; &amp;gt; /dev/null&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;PS. I find it a bit annoying when playing with some ideas &amp;amp; code.&lt;/p&gt;
 
-&lt;h2 id=&#34;fifth-and-last:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;Fifth, and last&lt;/h2&gt;
+&lt;h2 id=&#34;5:0a826cfb6ecaa44a775d6b96e50736d0&#34;&gt;#5&lt;/h2&gt;
 
 &lt;p&gt;Use editor with support for &lt;a href=&#34;https://golang.org/cmd/gofmt/&#34;&gt;gofmt&lt;/a&gt; which will cover almost all issues mentioned here: &lt;a href=&#34;https://github.com/golang/go/wiki/CodeReviewComments&#34;&gt;https://github.com/golang/go/wiki/CodeReviewComments&lt;/a&gt;.&lt;/p&gt;
 
