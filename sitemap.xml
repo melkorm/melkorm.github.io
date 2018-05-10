@@ -1,25 +1,79 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://melkorm.github.io/</loc>
+    <loc>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/about/</loc>
+    <lastmod>2016-03-19T14:02:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/2016/03/19/tips-for-first-steps-with-go/</loc>
+    <lastmod>2016-03-19T14:02:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/tags/docker/</loc>
     <lastmod>2016-04-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://melkorm.github.io/2016/04/10/gitlab-runner-and-php/</loc>
+    <loc>https://blog.melkorm.pl/tags/gitlab/</loc>
     <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://melkorm.github.io/about/</loc>
+    <loc>https://blog.melkorm.pl/tags/golang/</loc>
     <lastmod>2016-03-19T14:02:37+02:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://melkorm.github.io/2016/03/19/tips-for-first-steps-with-go/</loc>
+    <loc>https://blog.melkorm.pl/tags/php/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/post/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/tags/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/tags/testing/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/tags/tips/</loc>
     <lastmod>2016-03-19T14:02:37+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.melkorm.pl/</loc>
+    <lastmod>2016-04-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

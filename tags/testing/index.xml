@@ -2,140 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Testing on melkorm&#39;s blog</title>
-    <link>https://melkorm.github.io/tags/testing/</link>
+    <link>https://blog.melkorm.pl/tags/testing/</link>
     <description>Recent content in Testing on melkorm&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>melkorm</copyright>
     <lastBuildDate>Sun, 10 Apr 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://melkorm.github.io/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://blog.melkorm.pl/tags/testing/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Testing PHP code against more PHP versions</title>
-      <link>https://melkorm.github.io/2016/04/10/gitlab-runner-and-php/</link>
+      <link>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</link>
       <pubDate>Sun, 10 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://melkorm.github.io/2016/04/10/gitlab-runner-and-php/</guid>
-      <description>
-
-&lt;p&gt;As PHP grows, more versions show up with better stability &amp;amp; performance, obviously
-we test our code against production environment, but what if we could test it against
-new versions with little effort and ensure soft migration ?&lt;/p&gt;
-
-&lt;p&gt;Here we will use Docker &amp;amp; Gitlab runners power to ensure that our PHP code runs on
-those versions: 5.5, 5.6 and 7.0.&lt;/p&gt;
-
-&lt;p&gt;We&amp;rsquo;ll use our own &lt;a href=&#34;https://hub.docker.com/r/melkorm/php-docker/&#34;&gt;Docker images&lt;/a&gt;
-with configured additional extensions not provided by PHP official images, also
-with installed GIT and newest composer out of the box.&lt;/p&gt;
-
-&lt;h2 id=&#34;what-is-gitlab-gitlab:296cba53251db632d9dc06c005ed486b&#34;&gt;What is &lt;a href=&#34;https://gitlab.com&#34;&gt;Gitlab&lt;/a&gt;&lt;/h2&gt;
-
-&lt;p&gt;Gitlab is yet another git projects hosting platform staying that it will be free &lt;strong&gt;forever&lt;/strong&gt;.
-How does it differ from Github or Bitbucket ?&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;no limits on public / private repos and users, more info &lt;a href=&#34;https://about.gitlab.com/gitlab-com/&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;no &lt;strong&gt;PRs&lt;/strong&gt; (pull requests), but &lt;strong&gt;MR&lt;/strong&gt; (merge requests) - more details &lt;a href=&#34;http://stackoverflow.com/a/29951658/947238&#34;&gt;here&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gitlab runners&lt;/strong&gt; - tool to run builds on external machines, using host itself or docker - in this series we will speak only about docker runners.
-Runner can be either public (provided by Gitlab) or private - setup on external machine. &lt;em&gt;In this example we will use Gitlab&amp;rsquo;s public runners.&lt;/em&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;preparations:296cba53251db632d9dc06c005ed486b&#34;&gt;Preparations&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Create an account on &lt;a href=&#34;https://gitlab.com/&#34;&gt;https://gitlab.com/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Fork example repository &lt;a href=&#34;https://gitlab.com/melkorm/php-testing&#34;&gt;https://gitlab.com/melkorm/php-testing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you want to see how it works / looks like then make some change in source and build will be automatically run against your changes.&lt;/p&gt;
-
-&lt;h2 id=&#34;gitlab-ci-yml-config:296cba53251db632d9dc06c005ed486b&#34;&gt;.gitlab-ci.yml config&lt;/h2&gt;
-
-&lt;p&gt;First we need a config for our Gitlab runner. It is a configuration file written in YAML format,
-for full specification see &lt;a href=&#34;http://doc.gitlab.com/ee/ci/yaml/README.html&#34;&gt;docs&lt;/a&gt;&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/24e401fc7452c4ef4980b6cd12fe2ab2.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;Let&amp;rsquo;s go trough the config for details:&lt;/p&gt;
-
-&lt;h4 id=&#34;variables-section-where-we-specify-env-variables-which-will-be-available-for-all-running-scripts:296cba53251db632d9dc06c005ed486b&#34;&gt;Variables, section where we specify &lt;em&gt;env&lt;/em&gt; variables which will be available for all running scripts&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/677107aeb17ef5cb64bd8cb15b6c88f2.js&#34;&gt;&lt;/script&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;COMPOSER_CACHE_DIR&lt;/code&gt; - we want to cache composer libraries across builds, we don&amp;rsquo;t want to pull all the dependencies for each build,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;COMPOSER_DISABLE_XDEBUG_WARN&lt;/code&gt; - disabling composer&amp;rsquo;s xdebug warn so it doesn&amp;rsquo;t mess with our tests output,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;COMPOSER_VENDOR_DIR&lt;/code&gt; - here we setup custom directory for composer&amp;rsquo;s vendor dir,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CI_PROJECT_ID&lt;/code&gt; and &lt;code&gt;CI_BUILD_REF_NAME&lt;/code&gt; are provided by Gitlab, you can read more about available variables &lt;a href=&#34;http://doc.gitlab.com/ce/ci/variables/README.html&#34;&gt;here&lt;/a&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;CI_PROJECT_ID&lt;/code&gt; - this is ID of our project,&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;CI_BUILD_REF_NAME&lt;/code&gt; - The branch or tag name for which project is built.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&#34;stages-section-when-we-specify-groups-of-tasks-to-be-executed-you-can-think-about-it-as-a-pipeline-for-example-test-build-deploy:296cba53251db632d9dc06c005ed486b&#34;&gt;Stages, section when we specify groups of tasks to be executed, you can think about it as a pipeline, for example: test, build, deploy.&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/a2a3ea3c2fe88989da09f5dcf4ecd16c.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;We only specify &lt;em&gt;test&lt;/em&gt; as this is our only stage in this scenario.&lt;/p&gt;
-
-&lt;h4 id=&#34;jobs:296cba53251db632d9dc06c005ed486b&#34;&gt;Jobs&lt;/h4&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/3de2cd584dc9b11db462d3434d315b39.js&#34;&gt;&lt;/script&gt;
-
-&lt;ul&gt;
-&lt;li&gt;test55 - job name&lt;/li&gt;
-&lt;li&gt;image - docker image pulled from &lt;a href=&#34;https://hub.docker.com/&#34;&gt;Docker Hub&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;stage - to which stage task belongs to&lt;/li&gt;
-&lt;li&gt;script - list of commands to execute&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;code&gt;mkdir -p /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME}&lt;/code&gt; -
-Here we prepare storage for composer&amp;rsquo;s dependencies&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;ln -s /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME} vendor&lt;/code&gt; -
-link the storage to vendor in our app directory&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;make&lt;/code&gt; - run our make script to install dependencies and run tests.&lt;/p&gt;
-
-&lt;h2 id=&#34;php-testing:296cba53251db632d9dc06c005ed486b&#34;&gt;PHP Testing&lt;/h2&gt;
-
-&lt;p&gt;&lt;strong&gt;Makefile&lt;/strong&gt; - quickly adds console for repetitive tasks done with our application from command line, like:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;installing dependencies&lt;/li&gt;
-&lt;li&gt;testing&lt;/li&gt;
-&lt;li&gt;building&lt;/li&gt;
-&lt;li&gt;releasing&lt;/li&gt;
-&lt;li&gt;and many more.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Example &lt;strong&gt;Makefile&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/43bbad2b471da9bf7a316c610d9f8b14.js&#34;&gt;&lt;/script&gt;
-structure is:
-&lt;script src=&#34;https://gist.github.com/melkorm/07a1c94fb37087e194d815b9f3f9b678.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;if you run make without params it will run first command.&lt;/p&gt;
-
-&lt;p&gt;Now we can call &lt;code&gt;$ make&lt;/code&gt; and &lt;code&gt;test&lt;/code&gt; will execute after &lt;code&gt;composer&lt;/code&gt;, example output:&lt;/p&gt;
-
-&lt;script src=&#34;https://gist.github.com/melkorm/be8688d57d0b06edabb27188b56de56a.js&#34;&gt;&lt;/script&gt;
-
-&lt;p&gt;You can see example build &amp;amp; output &lt;a href=&#34;https://gitlab.com/melkorm/php-testing/builds/1038812&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;wrap-up:296cba53251db632d9dc06c005ed486b&#34;&gt;Wrap up&lt;/h2&gt;
-
-&lt;p&gt;As you can see it is easy to test your code against many PHP versions.
-All you need is Gitlab and Docker image supporting your stack. Of course you don&amp;rsquo;t
-need to use Gitlab, you can configure your Jenkins or any other build tool to test
-your code on different Docker images. We like Gitlab as this offers many features
-out of the box with little effort. So if you start a new project,
-or want to automate testing with current one - try Gitlab as it might be the right tool
-for you.&lt;/p&gt;
-</description>
+      <guid>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</guid>
+      <description>As PHP grows, more versions show up with better stability &amp;amp; performance, obviously we test our code against production environment, but what if we could test it against new versions with little effort and ensure soft migration ?
+Here we will use Docker &amp;amp; Gitlab runners power to ensure that our PHP code runs on those versions: 5.5, 5.6 and 7.0.
+We&amp;rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.</description>
     </item>
     
   </channel>
