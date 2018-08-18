@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>Testing PHP code against many PHP versions</title>
+      <title>Testing PHP code against more PHP versions</title>
       <link>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</link>
       <pubDate>Sun, 10 Apr 2016 00:00:00 +0000</pubDate>
       
       <guid>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</guid>
-      <description>As PHP grows, more versions show up with better stability &amp;amp; performance, obviously we test our code against production environment, but what if we could test it against new versions with little effort and ensure soft migration in future ?
-Here we will use Docker &amp;amp; Gitlab to ensure that our PHP code runs on these versions: 5.5, 5.6 and 7.0.
+      <description>As PHP grows, more versions show up with better stability &amp;amp; performance, obviously we test our code against production environment, but what if we could test it against new versions with little effort and ensure soft migration ?
+Here we will use Docker &amp;amp; Gitlab runners power to ensure that our PHP code runs on those versions: 5.5, 5.6 and 7.0.
 We&amp;rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.</description>
     </item>
     
@@ -40,7 +40,7 @@ We&amp;rsquo;ll use our own Docker images with configured additional extensions 
       
       <guid>https://blog.melkorm.pl/about/</guid>
       <description>Programmer since 2002 when I wrote my first program in TurboPascal, of course it was a calculator - who would write anything else back then ? Serious programming started around my 1st year at studies when I took my first job - taking care of Polish biggest club portal.
-Mostly I code in PHP . Tho I like to code in GO and sometimes in Bash when the hammer is needed.</description>
+Mostly I code in PHP . Tho I like to code in GO and Python, sometimes in Bash when the hammer is needed.</description>
     </item>
     
   </channel>
