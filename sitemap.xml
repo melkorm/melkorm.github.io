@@ -23,7 +23,7 @@
   </url>
   
   <url>
-    <loc>https://blog.melkorm.dev/post/</loc>
+    <loc>https://blog.melkorm.dev/posts/</loc>
     <lastmod>2016-04-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/</loc>
+    <loc>https://blog.melkorm.dev/posts/gitlab-runner-and-php/</loc>
     <lastmod>2016-04-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -53,7 +53,7 @@
   </url>
   
   <url>
-    <loc>https://blog.melkorm.dev/2016/03/19/tips-for-first-steps-with-go/</loc>
+    <loc>https://blog.melkorm.dev/posts/tips-for-first-steps-with-go/</loc>
     <lastmod>2016-03-19T14:02:37+02:00</lastmod>
   </url>
   
