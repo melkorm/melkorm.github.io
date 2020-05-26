@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on melkorm&#39;s blog</title>
-    <link>https://blog.melkorm.pl/post/</link>
+    <link>https://blog.melkorm.dev/post/</link>
     <description>Recent content in Posts on melkorm&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>melkorm</copyright>
     <lastBuildDate>Sun, 10 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.melkorm.pl/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.melkorm.dev/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing PHP code against many PHP versions</title>
-      <link>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</link>
+      <link>https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/</link>
       <pubDate>Sun, 10 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</guid>
+      <guid>https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/</guid>
       <description>As PHP grows, more versions show up with better stability &amp;amp; performance, obviously we test our code against production environment, but what if we could test it against new versions with little effort and ensure soft migration in future ?
 Here we will use Docker &amp;amp; Gitlab to ensure that our PHP code runs on these versions: 5.5, 5.6 and 7.0.
 We&amp;rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.</description>
@@ -25,12 +25,13 @@ We&amp;rsquo;ll use our own Docker images with configured additional extensions 
     
     <item>
       <title>Tips for first steps with GO</title>
-      <link>https://blog.melkorm.pl/2016/03/19/tips-for-first-steps-with-go/</link>
+      <link>https://blog.melkorm.dev/2016/03/19/tips-for-first-steps-with-go/</link>
       <pubDate>Sat, 19 Mar 2016 14:02:37 +0200</pubDate>
       
-      <guid>https://blog.melkorm.pl/2016/03/19/tips-for-first-steps-with-go/</guid>
+      <guid>https://blog.melkorm.dev/2016/03/19/tips-for-first-steps-with-go/</guid>
       <description>With this posts I want to highlight few things when staring with GO for new people which sometimes doesn&amp;rsquo;t seem so straight forward after reading https://golang.org/doc/install.
-#1 Install GO&amp;rsquo;s version 1.6+ there is no point to use any previous versions as with 1.6 version GO added vendor support (experimental in 1.5). What does it mean ? That dependencies are tight to a project not a global GO&amp;rsquo;s dependency catalog.</description>
+#1 Install GO&amp;rsquo;s version 1.6+ there is no point to use any previous versions as with 1.6 version GO added vendor support (experimental in 1.5). What does it mean ? That dependencies are tight to a project not a global GO&amp;rsquo;s dependency catalog.
+If you come from PHP world you can compare it to global command for composer - yes, prior 1.</description>
     </item>
     
   </channel>

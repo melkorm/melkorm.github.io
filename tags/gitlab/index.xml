@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Gitlab on melkorm&#39;s blog</title>
-    <link>https://blog.melkorm.pl/tags/gitlab/</link>
-    <description>Recent content in Gitlab on melkorm&#39;s blog</description>
+    <title>gitlab on melkorm&#39;s blog</title>
+    <link>https://blog.melkorm.dev/tags/gitlab/</link>
+    <description>Recent content in gitlab on melkorm&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>melkorm</copyright>
     <lastBuildDate>Sun, 10 Apr 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blog.melkorm.pl/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.melkorm.dev/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Testing PHP code against many PHP versions</title>
-      <link>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</link>
+      <link>https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/</link>
       <pubDate>Sun, 10 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/</guid>
+      <guid>https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/</guid>
       <description>As PHP grows, more versions show up with better stability &amp;amp; performance, obviously we test our code against production environment, but what if we could test it against new versions with little effort and ensure soft migration in future ?
 Here we will use Docker &amp;amp; Gitlab to ensure that our PHP code runs on these versions: 5.5, 5.6 and 7.0.
 We&amp;rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.</description>

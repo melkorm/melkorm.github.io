@@ -9,7 +9,7 @@ Here we will use Docker &amp; Gitlab to ensure that our PHP code runs on these v
 We&rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.">
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-        <meta name="generator" content="Hugo 0.49.2" />
+        <meta name="generator" content="Hugo 0.71.1" />
         <meta name="robots" content="index,follow">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta property="og:title" content="Testing PHP code against many PHP versions">
@@ -17,8 +17,8 @@ We&rsquo;ll use our own Docker images with configured additional extensions not 
 Here we will use Docker &amp; Gitlab to ensure that our PHP code runs on these versions: 5.5, 5.6 and 7.0.
 We&rsquo;ll use our own Docker images with configured additional extensions not provided by PHP official images, also with installed GIT and newest composer out of the box.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://blog.melkorm.pl/2016/04/10/gitlab-runner-and-php/">
-        <link rel="stylesheet" href="https://blog.melkorm.pl/dist/styles.css">
+<meta property="og:url" content="https://blog.melkorm.dev/2016/04/10/gitlab-runner-and-php/">
+        <link rel="stylesheet" href="https://blog.melkorm.dev/dist/styles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,600,700,300&subset=latin,cyrillic-ext,latin-ext,cyrillic">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         
@@ -46,10 +46,10 @@ if (!doNotTrack) {
                     <div class="site-title-wrapper">
                         
                             <h1 class="site-title">
-                                <a title="melkorm&#39;s blog" href="https://blog.melkorm.pl/">melkorm&#39;s blog</a>
+                                <a title="melkorm&#39;s blog" href="https://blog.melkorm.dev/">melkorm&#39;s blog</a>
                             </h1>
                         
-                        <a class="button-square" href="https://blog.melkorm.pl/index.xml"><i class="fa fa-rss"></i></a>
+                        <a class="button-square" href="https://blog.melkorm.dev/index.xml"><i class="fa fa-rss"></i></a>
                         
                             <a class="button-square button-social hint--top" data-hint="Twitter" title="Twitter" href="https://twitter.com/melko4m">
                                 <i class="fa fa-twitter"></i>
@@ -125,93 +125,65 @@ if (!doNotTrack) {
         <img class="post-featured-image" src="/img/post/gitlab-tests.png">
     
 
-    
-
-<p>As PHP grows, more versions show up with better stability &amp; performance, obviously
+    <p>As PHP grows, more versions show up with better stability &amp; performance, obviously
 we test our code against production environment, but what if we could test it against
 new versions with little effort and ensure soft migration in future ?</p>
-
 <p>Here we will use Docker &amp; Gitlab to ensure that our PHP code runs on
 these versions: 5.5, 5.6 and 7.0.</p>
-
 <p>We&rsquo;ll use our own <a href="https://hub.docker.com/r/melkorm/php-docker/">Docker images</a>
 with configured additional extensions not provided by PHP official images, also
 with installed GIT and newest composer out of the box.</p>
-
-<h2 id="what-is-gitlab-gitlab">What is <a href="https://gitlab.com">Gitlab</a></h2>
-
+<h2 id="what-is-gitlabgitlab">What is <a href="https://gitlab.com">Gitlab</a></h2>
 <p>Gitlab is git projects hosting platform staying that it will be free <strong>forever</strong>.
 How does it differ from Github or Bitbucket ?</p>
-
 <ul>
 <li>no limits on public / private repos and users, more info <a href="https://about.gitlab.com/gitlab-com/">here</a></li>
 <li>no <strong>PRs</strong> (pull requests), but <strong>MR</strong> (merge requests) - more details <a href="http://stackoverflow.com/a/29951658/947238">here</a></li>
 <li><strong>Gitlab runners</strong> - tool to run builds on external machines, using host itself or docker - in this series we will speak only about docker runners.
 Runner can be either public (provided by Gitlab) or private - setup on external machine. <em>In this example we will use Gitlab&rsquo;s public runners.</em></li>
 </ul>
-
 <h2 id="preparations">Preparations</h2>
-
 <ul>
 <li>Create an account on <a href="https://gitlab.com/">https://gitlab.com/</a></li>
 <li>Fork example repository <a href="https://gitlab.com/melkorm/php-testing">https://gitlab.com/melkorm/php-testing</a></li>
 </ul>
-
 <p>If you want to see how it works / looks like then make some change in source and build will be automatically ran against your changes.</p>
-
-<h2 id="gitlab-ci-yml-config">.gitlab-ci.yml config</h2>
-
+<h2 id="gitlab-ciyml-config">.gitlab-ci.yml config</h2>
 <p>First we need a config for our Gitlab runner. It is a configuration file written in YAML format,
-for full specification see <a href="http://doc.gitlab.com/ee/ci/yaml/README.html">docs</a>
-<script src="https://gist.github.com/melkorm/24e401fc7452c4ef4980b6cd12fe2ab2.js"></script></p>
-
+for full specification see <a href="http://doc.gitlab.com/ee/ci/yaml/README.html">docs</a></p>
+<!-- raw HTML omitted -->
 <p>Let&rsquo;s go trough the config for details:</p>
-
 <h4 id="variables-section-where-we-specify-env-variables-which-will-be-available-for-all-running-scripts">Variables, section where we specify <em>env</em> variables which will be available for all running scripts</h4>
-
-<script src="https://gist.github.com/melkorm/677107aeb17ef5cb64bd8cb15b6c88f2.js"></script>
-
+<!-- raw HTML omitted -->
 <ul>
 <li><code>COMPOSER_CACHE_DIR</code> - we want to cache composer libraries across builds, we don&rsquo;t want to pull all the dependencies for each build,</li>
 <li><code>COMPOSER_DISABLE_XDEBUG_WARN</code> - disabling composer&rsquo;s xdebug warn so it doesn&rsquo;t mess with our tests output,</li>
 <li><code>COMPOSER_VENDOR_DIR</code> - here we setup custom directory for composer&rsquo;s vendor dir,</li>
 <li><code>CI_PROJECT_ID</code> and <code>CI_BUILD_REF_NAME</code> are provided by Gitlab, you can read more about available variables <a href="http://doc.gitlab.com/ce/ci/variables/README.html">here</a>
-
 <ul>
 <li><code>CI_PROJECT_ID</code> - this is ID of our project,</li>
 <li><code>CI_BUILD_REF_NAME</code> - The branch or tag name for which project is built.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h4 id="stages-section-when-we-specify-groups-of-tasks-to-be-executed-you-can-think-about-it-as-a-pipeline-for-example-test-build-deploy">Stages, section when we specify groups of tasks to be executed, you can think about it as a pipeline, for example: test, build, deploy.</h4>
-
-<script src="https://gist.github.com/melkorm/a2a3ea3c2fe88989da09f5dcf4ecd16c.js"></script>
-
+<!-- raw HTML omitted -->
 <p>We only specify <em>test</em> as this is our only stage in this scenario.</p>
-
 <h4 id="jobs">Jobs</h4>
-
-<script src="https://gist.github.com/melkorm/3de2cd584dc9b11db462d3434d315b39.js"></script>
-
+<!-- raw HTML omitted -->
 <ul>
 <li>test55 - job name</li>
 <li>image - docker image pulled from <a href="https://hub.docker.com/">Docker Hub</a></li>
 <li>stage - to which stage task belongs to</li>
 <li>script - list of commands to execute</li>
 </ul>
-
 <p><code>mkdir -p /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME}</code> -
 Here we prepare storage for composer&rsquo;s dependencies</p>
-
 <p><code>ln -s /storage/vendor/${CI_PROJECT_ID}/${CI_BUILD_REF_NAME} vendor</code> -
 link the storage to vendor in our app directory</p>
-
 <p><code>make</code> - run our make script to install dependencies and run tests.</p>
-
 <h2 id="php-testing">PHP Testing</h2>
-
 <p><strong>Makefile</strong> - quickly adds console for repetitive tasks done with our application from command line, like:</p>
-
 <ul>
 <li>installing dependencies</li>
 <li>testing</li>
@@ -219,23 +191,15 @@ link the storage to vendor in our app directory</p>
 <li>releasing</li>
 <li>and many more.</li>
 </ul>
-
 <p>Example <strong>Makefile</strong>:</p>
-
-<script src="https://gist.github.com/melkorm/43bbad2b471da9bf7a316c610d9f8b14.js"></script>
-structure is:
-<script src="https://gist.github.com/melkorm/07a1c94fb37087e194d815b9f3f9b678.js"></script>
-
+<!-- raw HTML omitted -->
+<p>structure is:</p>
+<!-- raw HTML omitted -->
 <p>if you run make without params it will run first command.</p>
-
 <p>Now we can call <code>$ make</code> and <code>test</code> will execute after <code>composer</code>, example output:</p>
-
-<script src="https://gist.github.com/melkorm/be8688d57d0b06edabb27188b56de56a.js"></script>
-
+<!-- raw HTML omitted -->
 <p>You can see example build &amp; output <a href="https://gitlab.com/melkorm/php-testing/builds/1038812">here</a></p>
-
 <h2 id="wrap-up">Wrap up</h2>
-
 <p>As you can see it is easy to test your code against many PHP versions.
 All you need is Gitlab and Docker image supporting your stack. Of course you don&rsquo;t
 need to use Gitlab, you can configure your Jenkins or any other build tool to test
@@ -265,7 +229,7 @@ for you.</p>
 
     <div class="share">
         
-            <a class="icon-twitter" href="https://twitter.com/share?text=Testing%20PHP%20code%20against%20many%20PHP%20versions&url=https%3a%2f%2fblog.melkorm.pl%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+            <a class="icon-twitter" href="https://twitter.com/share?text=Testing%20PHP%20code%20against%20many%20PHP%20versions&url=https%3a%2f%2fblog.melkorm.dev%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
                 onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                 <i class="fa fa-twitter"></i>
                 <span class="hidden">Twitter</span>
@@ -273,7 +237,7 @@ for you.</p>
         
 
         
-            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.melkorm.pl%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+            <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fblog.melkorm.dev%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                 <i class="fa fa-facebook"></i>
                 <span class="hidden">Facebook</span>
@@ -281,7 +245,7 @@ for you.</p>
         
 
         
-            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fblog.melkorm.pl%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
+            <a class="icon-google-plus" href="https://plus.google.com/share?url=https%3a%2f%2fblog.melkorm.dev%2f2016%2f04%2f10%2fgitlab-runner-and-php%2f"
               onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
               <i class="fa fa-google-plus"></i>
                 <span class="hidden">Google+</span>
@@ -302,7 +266,7 @@ for you.</p>
             <div class="container">
                 <div class="site-title-wrapper">
                     <h1 class="site-title">
-                        <a title="melkorm&#39;s blog" href="https://blog.melkorm.pl/">melkorm&#39;s blog</a>
+                        <a title="melkorm&#39;s blog" href="https://blog.melkorm.dev/">melkorm&#39;s blog</a>
                     </h1>
                     <a class="button-square button-jump-top js-jump-top" href="#">
                         <i class="fa fa-angle-up"></i>
@@ -319,14 +283,14 @@ for you.</p>
             </div>
         </footer>
 
-        <script src="https://blog.melkorm.pl/js/jquery-1.11.3.min.js"></script>
-        <script src="https://blog.melkorm.pl/js/jquery.fitvids.js"></script>
+        <script src="https://blog.melkorm.dev/js/jquery-1.11.3.min.js"></script>
+        <script src="https://blog.melkorm.dev/js/jquery.fitvids.js"></script>
         
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
         
         
-        <script src="https://blog.melkorm.pl/js/scripts.js"></script>
+        <script src="https://blog.melkorm.dev/js/scripts.js"></script>
     </body>
 </html>
 
