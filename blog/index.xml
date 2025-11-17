@@ -4,19 +4,17 @@
     <title>Blog on melkorm&#39;s blog</title>
     <link>https://blog.melkorm.dev/blog/</link>
     <description>Recent content in Blog on melkorm&#39;s blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2025, melkorm.</copyright>
-    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.melkorm.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.melkorm.dev/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hosting Single Page Applications on GCP</title>
       <link>https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/</link>
       <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      
       <guid>https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/</guid>
-      <description>With all Single Page Applications, there is a problem of hosting it without any backend and also making sure that seo, cache and routing works correctly, which means:
-all non-assets requests go to index.html, all assets are cached but index.html, when releasing a new page, everything is refreshed and client won&amp;rsquo;t receive stale information, CDN works correctly including the above, Not found pages return the correct 404 HTTP status code. The last point on the list is the hardest to implement correctly.</description>
+      <description>&lt;p&gt;With all Single Page Applications, there is a problem of hosting it without any backend&#xA;and also making sure that seo, cache and routing works correctly, which means:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;all non-assets requests go to &lt;code&gt;index.html&lt;/code&gt;,&lt;/li&gt;&#xA;&lt;li&gt;all assets are cached but &lt;code&gt;index.html&lt;/code&gt;,&lt;/li&gt;&#xA;&lt;li&gt;when releasing a new page, everything is refreshed and client won&amp;rsquo;t receive stale information,&lt;/li&gt;&#xA;&lt;li&gt;CDN works correctly including the above,&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Not found&lt;/strong&gt; pages return the correct &lt;strong&gt;404&lt;/strong&gt; HTTP status code.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The last point on the list is the hardest to implement correctly.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
