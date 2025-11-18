@@ -67,7 +67,7 @@ Example routes table:
 const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, name: &#39;home_page&#39;, }, { path: &#39;/about/&#39;, component: AboutPage, name: &#39;about_page&#39;, }, ] To render a 404 page we need to add entry which will catch everything and render 404 page.">
   <meta itemprop="datePublished" content="2025-11-18T01:21:25+01:00">
   <meta itemprop="dateModified" content="2025-11-18T01:21:25+01:00">
-  <meta itemprop="wordCount" content="418">
+  <meta itemprop="wordCount" content="424">
   <meta itemprop="keywords" content="Frontend,Vue,404,Http,Seo,Router,Vue-Router,Vue3">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -293,8 +293,8 @@ const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, nam
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">ErrorNotFound</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;not_found_page&#39;</span>,
 </span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:catchAll(.*)*&#39;</span>, <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/404.html&#39;</span> },
-</span></span></code></pre></div><p>This redirect is crucial because it initiates a new browser request for <code>/404.html</code>. This allows your server (e.g., Load Balancer/CDN, as detailed in my article about <a href="/hosting-single-page-applications-on-gcp/">hosting SPA applications on GCP</a>
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:pathMatch(.*)*&#39;</span>, <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> () <span style="color:#f92672">=&gt;</span> (window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/404.html&#39;</span>) },
+</span></span></code></pre></div><p>This redirect and <code>window.location.href</code> is crucial because it initiates a new browser request for <code>/404.html</code>. This allows your server (e.g., Load Balancer/CDN, as detailed in my article about <a href="/hosting-single-page-applications-on-gcp/">hosting SPA applications on GCP</a>
 ) to intercept the non-existent file request and return the necessary 404 HTTP status code to the client.</p>
 <h2 id="going-deeper">Going deeper</h2>
 <p>Question: what will happen if we put our <code>catchAll</code> entry at the begging of the route&rsquo;s list? Think about it for a moment and read on.</p>
