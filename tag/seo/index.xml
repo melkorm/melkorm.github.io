@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on melkorm&#39;s blog</title>
-    <link>https://blog.melkorm.dev/blog/</link>
-    <description>Recent content in Blog on melkorm&#39;s blog</description>
+    <title>Seo on melkorm&#39;s blog</title>
+    <link>https://blog.melkorm.dev/tag/seo/</link>
+    <description>Recent content in Seo on melkorm&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2025, melkorm.</copyright>
     <lastBuildDate>Tue, 18 Nov 2025 01:21:25 +0100</lastBuildDate>
-    <atom:link href="https://blog.melkorm.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.melkorm.dev/tag/seo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>404 pages with Vue.js and vue-router</title>
       <link>https://blog.melkorm.dev/404-pages-with-vue.js-and-vue-router/</link>

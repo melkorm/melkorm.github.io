@@ -7,55 +7,90 @@
     <generator>Hugo</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2025, melkorm.</copyright>
-    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Nov 2025 01:21:25 +0100</lastBuildDate>
     <atom:link href="https://blog.melkorm.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>404</title>
+      <link>https://blog.melkorm.dev/tag/404/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/404/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Frontend</title>
-      <link>https://blog.melkorm.dev/blog/frontend/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/frontend/</guid>
+      <link>https://blog.melkorm.dev/tag/frontend/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/frontend/</guid>
       <description></description>
     </item>
     <item>
-      <title>Gcp</title>
-      <link>https://blog.melkorm.dev/blog/gcp/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/gcp/</guid>
+      <title>Http</title>
+      <link>https://blog.melkorm.dev/tag/http/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/http/</guid>
       <description></description>
     </item>
     <item>
-      <title>Gcs</title>
-      <link>https://blog.melkorm.dev/blog/gcs/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/gcs/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Google</title>
-      <link>https://blog.melkorm.dev/blog/google/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/google/</guid>
+      <title>Router</title>
+      <link>https://blog.melkorm.dev/tag/router/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/router/</guid>
       <description></description>
     </item>
     <item>
       <title>Seo</title>
-      <link>https://blog.melkorm.dev/blog/seo/</link>
+      <link>https://blog.melkorm.dev/tag/seo/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/seo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vue</title>
+      <link>https://blog.melkorm.dev/tag/vue/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/vue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vue-Router</title>
+      <link>https://blog.melkorm.dev/tag/vue-router/</link>
+      <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
+      <guid>https://blog.melkorm.dev/tag/vue-router/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcp</title>
+      <link>https://blog.melkorm.dev/tag/gcp/</link>
       <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/seo/</guid>
+      <guid>https://blog.melkorm.dev/tag/gcp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gcs</title>
+      <link>https://blog.melkorm.dev/tag/gcs/</link>
+      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.melkorm.dev/tag/gcs/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Google</title>
+      <link>https://blog.melkorm.dev/tag/google/</link>
+      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://blog.melkorm.dev/tag/google/</guid>
       <description></description>
     </item>
     <item>
       <title>Spa</title>
-      <link>https://blog.melkorm.dev/blog/spa/</link>
+      <link>https://blog.melkorm.dev/tag/spa/</link>
       <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/spa/</guid>
+      <guid>https://blog.melkorm.dev/tag/spa/</guid>
       <description></description>
     </item>
     <item>
       <title>Terraform</title>
-      <link>https://blog.melkorm.dev/blog/terraform/</link>
+      <link>https://blog.melkorm.dev/tag/terraform/</link>
       <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/blog/terraform/</guid>
+      <guid>https://blog.melkorm.dev/tag/terraform/</guid>
       <description></description>
     </item>
   </channel>

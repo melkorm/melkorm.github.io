@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="https://blog.melkorm.dev/images/favicon2.png" />
+<title>404 pages with Vue.js and vue-router | melkorm&#39;s blog</title>
+<meta name="title" content="404 pages with Vue.js and vue-router" />
+<meta name="description" content="In this post we will explore how to render or redirect to 404 Not found page using Vue.js.
+Rendering
+To render 404 page we need to update our router definition. It can be found in src/router/router.ts.
+Example routes table:
+const routes: RouteRecordRaw[] = [
+  {
+    path: &#39;/&#39;,
+    component: HomePage,
+    name: &#39;home_page&#39;,
+  },
+  {
+    path: &#39;/about/&#39;,
+    component: AboutPage,
+    name: &#39;about_page&#39;,
+  },
+]
+To render a 404 page we need to add entry which will catch everything and render 404 page." />
+<meta name="keywords" content="frontend,vue,404,http,seo,router,vue-router," />
+
+
+<meta property="og:url" content="https://blog.melkorm.dev/404-pages-with-vue.js-and-vue-router/">
+  <meta property="og:site_name" content="melkorm&#39;s blog">
+  <meta property="og:title" content="404 pages with Vue.js and vue-router">
+  <meta property="og:description" content="In this post we will explore how to render or redirect to 404 Not found page using Vue.js.
+Rendering To render 404 page we need to update our router definition. It can be found in src/router/router.ts.
+Example routes table:
+const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, name: &#39;home_page&#39;, }, { path: &#39;/about/&#39;, component: AboutPage, name: &#39;about_page&#39;, }, ] To render a 404 page we need to add entry which will catch everything and render 404 page.">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-11-18T01:21:25+01:00">
+    <meta property="article:modified_time" content="2025-11-18T01:21:25+01:00">
+    <meta property="article:tag" content="Frontend">
+    <meta property="article:tag" content="Vue">
+    <meta property="article:tag" content="404">
+    <meta property="article:tag" content="Http">
+    <meta property="article:tag" content="Seo">
+    <meta property="article:tag" content="Router">
+
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="404 pages with Vue.js and vue-router">
+  <meta name="twitter:description" content="In this post we will explore how to render or redirect to 404 Not found page using Vue.js.
+Rendering To render 404 page we need to update our router definition. It can be found in src/router/router.ts.
+Example routes table:
+const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, name: &#39;home_page&#39;, }, { path: &#39;/about/&#39;, component: AboutPage, name: &#39;about_page&#39;, }, ] To render a 404 page we need to add entry which will catch everything and render 404 page.">
+
+
+
+
+  <meta itemprop="name" content="404 pages with Vue.js and vue-router">
+  <meta itemprop="description" content="In this post we will explore how to render or redirect to 404 Not found page using Vue.js.
+Rendering To render 404 page we need to update our router definition. It can be found in src/router/router.ts.
+Example routes table:
+const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, name: &#39;home_page&#39;, }, { path: &#39;/about/&#39;, component: AboutPage, name: &#39;about_page&#39;, }, ] To render a 404 page we need to add entry which will catch everything and render 404 page.">
+  <meta itemprop="datePublished" content="2025-11-18T01:21:25+01:00">
+  <meta itemprop="dateModified" content="2025-11-18T01:21:25+01:00">
+  <meta itemprop="wordCount" content="413">
+  <meta itemprop="keywords" content="Frontend,Vue,404,Http,Seo,Router,Vue-Router">
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  <style>
+  :root {
+    --width: 720px;
+    --font-main: Verdana, sans-serif;
+    --font-secondary: Verdana, sans-serif;
+    --font-scale: 1em;
+    --background-color: #fff;
+    --heading-color: #222;
+    --text-color: #444;
+    --link-color: #3273dc;
+    --visited-color: #8b6fcb;
+    --blockquote-color: #222;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background-color: #01242e;
+      --heading-color: #eee;
+      --text-color: #ddd;
+      --link-color: #8cc2dd;
+      --visited-color: #8b6fcb;
+      --blockquote-color: #ccc;
+    }
+  }
+
+  body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: 20px;
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-main);
+    color: var(--heading-color);
+  }
+
+  a {
+    color: var(--link-color);
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav a {
+    margin-right: 8px;
+  }
+
+  strong,
+  b {
+    color: var(--heading-color);
+  }
+
+  button {
+    margin: 0;
+    cursor: pointer;
+  }
+
+  time {
+    font-family: monospace;
+    font-style: normal;
+    font-size: 15px;
+  }
+
+  main {
+    line-height: 1.6;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px dashed;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  code {
+    font-family: monospace;
+    padding: 2px;
+    border-radius: 3px;
+  }
+
+  blockquote {
+    border-left: 1px solid #999;
+    color: var(--blockquote-color);
+    padding-left: 20px;
+    font-style: italic;
+  }
+
+  footer {
+    padding: 25px 0;
+    text-align: center;
+  }
+
+  .title:hover {
+    text-decoration: none;
+  }
+
+  .title h1 {
+    font-size: 1.5em;
+  }
+
+  .inline {
+    width: auto !important;
+  }
+
+  .highlight,
+  .code {
+    border-radius: 3px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+  }
+
+   
+  ul.blog-posts {
+    list-style-type: none;
+    padding: unset;
+  }
+
+  ul.blog-posts li {
+    display: flex;
+  }
+
+  ul.blog-posts li span {
+    flex: 0 0 130px;
+  }
+
+  ul.blog-posts li a:visited {
+    color: var(--visited-color);
+  }
+
+</style>
+
+</head>
+
+<body>
+  <header><a href="/" class="title">
+  <h2 style="display: flex; justify-content: left; gap: 5px;">
+      
+<img src="/images/me-gopher.jpg" width="30" height="30">
+      melkorm&#39;s blog</h2>
+
+</a>
+<nav>
+<a href="/">Home</a>
+
+<a href="/blog/">Blog</a>
+
+<a href="/about/">About</a>
+
+</nav>
+</header>
+  <main> 
+<h1>404 pages with Vue.js and vue-router</h1>
+<p>
+    <i>
+        <time datetime='2025-11-18'>
+            2025-11-18
+        </time>
+    </i>
+</p>
+
+<content> <p>In this post we will explore how to render or redirect to 404 Not found page using Vue.js.</p>
+<h2 id="rendering">Rendering</h2>
+<p>To render 404 page we need to update our router definition. It can be found in <code>src/router/router.ts</code>.</p>
+<p>Example routes table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">routes</span>: <span style="color:#66d9ef">RouteRecordRaw</span>[] <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">HomePage</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;home_page&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/about/&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">AboutPage</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;about_page&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>To render a 404 page we need to add entry which will catch everything and render 404 page.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>{ <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:catchAll(.*)*&#39;</span>, <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">Error404Page</span>, },
+</span></span></code></pre></div><p>Let&rsquo;s break down what path <code>'/:catchAll(.*)*'</code> is doing:</p>
+<ul>
+<li><code>:catchAll</code> - is the name of the path&rsquo;s parameter, the name can be anything. In most cases you will find it named <code>:pathMatch</code> which can be confusing as it sounds a bit as some reserved word or function name,</li>
+<li><code>(.*)</code> - is a regex of what we want to capture, in this case we we want to catch everything,</li>
+<li><code>*</code> - this is very important as it tells <code>vue-router</code> to catch paths with multiple segments e.g. <code>/foo/bar/</code> and <code>/foo/bar/baz</code>, without it it would only match single segment paths e.g. <code>/foo</code> or <code>/bar</code>.</li>
+</ul>
+<blockquote>
+<p>Warning! When we do a soft 404 page it won&rsquo;t actually result in 404 HTTP response code to the client. This will impact SEO as the browser will see <code>200 OK</code> response status. Which indicates that page actually exists and could be indexed.</p>
+</blockquote>
+<h2 id="redirecting">Redirecting</h2>
+<p>We can also redirect user to different page like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/404.html&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">component</span>: <span style="color:#66d9ef">ErrorNotFound</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;not_found_page&#39;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:catchAll(.*)*&#39;</span>, <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/404.html&#39;</span> },
+</span></span></code></pre></div><p>This redirect is crucial because it initiates a new browser request for <code>/404.html</code>. This allows your server (e.g., Load Balancer/CDN, as detailed in my article about <a href="%28/hosting-single-page-applications-on-gcp/%29">hosting SPA applications on GCP</a>
+) to intercept the non-existent file request and return the necessary 404 HTTP status code to the client.</p>
+<h2 id="going-deeper">Going deeper</h2>
+<p>Question: what will happen if we put our <code>catchAll</code> entry at the begging of the route&rsquo;s list? Think about it for a moment and read on.</p>
+<hr>
+<p>I&rsquo;ve read that those routes are evaluated in order as defined, this could make sense, as it is simple and clear but while testing it didn&rsquo;t work at all. Turns out it&rsquo;s not as simple and entries are matched by their weight (or rank), from less to more complex ones. This ensures that a specific route like <code>/about</code> is always matched before the generic catch-all route, regardless of definition order. Current weights can be found in <a href="https://github.com/vuejs/router/blob/main/packages/router/src/matcher/pathParserRanker.ts#L102" target="_blank" rel="noopener">vue-router&rsquo;s code</a>
+.</p>
+<p>Thanks for reading :)</p>
+ </content>
+
+<div style="font-size:0.8em;display:flex;gap:16px;justify-content:center;">
+  <p>
+    
+    <a href="https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/">
+      &lt;&lt; Previous Post</a>
+        
+  </p>
+  <p>|</p>
+  <p>
+    
+    <strike>Next Post >></strike>
+    
+  </p>
+</div>
+
+
+<p>
+    
+    <a href="https://blog.melkorm.dev/tag/frontend/">#frontend</a>
+    
+    <a href="https://blog.melkorm.dev/tag/vue/">#vue</a>
+    
+    <a href="https://blog.melkorm.dev/tag/404/">#404</a>
+    
+    <a href="https://blog.melkorm.dev/tag/http/">#http</a>
+    
+    <a href="https://blog.melkorm.dev/tag/seo/">#seo</a>
+    
+    <a href="https://blog.melkorm.dev/tag/router/">#router</a>
+    
+    <a href="https://blog.melkorm.dev/tag/vue-router/">#vue-router</a>
+    
+</p>
+
+  </main>
+  <footer>Made with <a href="https://github.com/janraasch/hugo-bearblog/">Hugo ʕ•ᴥ•ʔ Bear</a>
+</footer>
+
+  
+</body>
+
+</html>

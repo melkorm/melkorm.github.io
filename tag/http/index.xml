@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on melkorm&#39;s blog</title>
-    <link>https://blog.melkorm.dev/blog/</link>
-    <description>Recent content in Blog on melkorm&#39;s blog</description>
+    <title>Http on melkorm&#39;s blog</title>
+    <link>https://blog.melkorm.dev/tag/http/</link>
+    <description>Recent content in Http on melkorm&#39;s blog</description>
     <generator>Hugo</generator>
     <language>en-GB</language>
     <copyright>Copyright © 2025, melkorm.</copyright>
     <lastBuildDate>Tue, 18 Nov 2025 01:21:25 +0100</lastBuildDate>
-    <atom:link href="https://blog.melkorm.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://blog.melkorm.dev/tag/http/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>404 pages with Vue.js and vue-router</title>
       <link>https://blog.melkorm.dev/404-pages-with-vue.js-and-vue-router/</link>
       <pubDate>Tue, 18 Nov 2025 01:21:25 +0100</pubDate>
       <guid>https://blog.melkorm.dev/404-pages-with-vue.js-and-vue-router/</guid>
       <description>&lt;p&gt;In this post we will explore how to render or redirect to 404 Not found page using Vue.js.&lt;/p&gt;&#xA;&lt;h2 id=&#34;rendering&#34;&gt;Rendering&lt;/h2&gt;&#xA;&lt;p&gt;To render 404 page we need to update our router definition. It can be found in &lt;code&gt;src/router/router.ts&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Example routes table:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-typescript&#34; data-lang=&#34;typescript&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;routes&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;RouteRecordRaw&lt;/span&gt;[] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;component&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;HomePage&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;home_page&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  {&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;path&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;/about/&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;component&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;AboutPage&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;about_page&amp;#39;&lt;/span&gt;,&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  },&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To render a 404 page we need to add entry which will catch everything and render 404 page.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Hosting Single Page Applications on GCP</title>
-      <link>https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/</link>
-      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
-      <guid>https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/</guid>
-      <description>&lt;p&gt;With all Single Page Applications, there is a problem of hosting it without any backend&#xA;and also making sure that seo, cache and routing works correctly, which means:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;all non-assets requests go to &lt;code&gt;index.html&lt;/code&gt;,&lt;/li&gt;&#xA;&lt;li&gt;all assets are cached but &lt;code&gt;index.html&lt;/code&gt;,&lt;/li&gt;&#xA;&lt;li&gt;when releasing a new page, everything is refreshed and client won&amp;rsquo;t receive stale information,&lt;/li&gt;&#xA;&lt;li&gt;CDN works correctly including the above,&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Not found&lt;/strong&gt; pages return the correct &lt;strong&gt;404&lt;/strong&gt; HTTP status code.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;The last point on the list is the hardest to implement correctly.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -3,38 +3,56 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.melkorm.dev/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/blog/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/about/</loc>
   </url><url>
-    <loc>https://blog.melkorm.dev/blog/frontend/</loc>
+    <loc>https://blog.melkorm.dev/tag/404/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/404-pages-with-vue.js-and-vue-router/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/frontend/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/http/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/router/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/seo/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tags/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/vue/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/vue-router/</loc>
+    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/gcp/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.melkorm.dev/blog/gcp/</loc>
+    <loc>https://blog.melkorm.dev/tag/gcs/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.melkorm.dev/blog/gcs/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.melkorm.dev/blog/google/</loc>
+    <loc>https://blog.melkorm.dev/tag/google/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/hosting-single-page-applications-on-gcp/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.melkorm.dev/blog/seo/</loc>
+    <loc>https://blog.melkorm.dev/tag/spa/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.melkorm.dev/blog/spa/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.melkorm.dev/tags/</loc>
-    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.melkorm.dev/blog/terraform/</loc>
+    <loc>https://blog.melkorm.dev/tag/terraform/</loc>
     <lastmod>2025-11-17T00:00:00+00:00</lastmod>
   </url>
 </urlset>
