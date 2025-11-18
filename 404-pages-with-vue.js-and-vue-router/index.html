@@ -67,7 +67,7 @@ Example routes table:
 const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, name: &#39;home_page&#39;, }, { path: &#39;/about/&#39;, component: AboutPage, name: &#39;about_page&#39;, }, ] To render a 404 page we need to add entry which will catch everything and render 404 page.">
   <meta itemprop="datePublished" content="2025-11-18T01:21:25+01:00">
   <meta itemprop="dateModified" content="2025-11-18T01:21:25+01:00">
-  <meta itemprop="wordCount" content="413">
+  <meta itemprop="wordCount" content="418">
   <meta itemprop="keywords" content="Frontend,Vue,404,Http,Seo,Router,Vue-Router,Vue3">
 <meta name="referrer" content="no-referrer-when-downgrade" />
 
@@ -279,7 +279,8 @@ const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, nam
 <ul>
 <li><code>:catchAll</code> - is the name of the path&rsquo;s parameter, the name can be anything. In most cases you will find it named <code>:pathMatch</code> which can be confusing as it sounds a bit as some reserved word or function name,</li>
 <li><code>(.*)</code> - is a regex of what we want to capture, in this case we we want to catch everything,</li>
-<li><code>*</code> - this is very important as it tells <code>vue-router</code> to catch paths with multiple segments e.g. <code>/foo/bar/</code> and <code>/foo/bar/baz</code>, without it it would only match single segment paths e.g. <code>/foo</code> or <code>/bar</code>.</li>
+<li><code>*</code> - this is very important as it tells <code>vue-router</code> to catch paths with multiple segments e.g. <code>/foo/bar/</code> and <code>/foo/bar/baz</code>, without it it would only match single segment paths e.g. <code>/foo</code> or <code>/bar</code>. <a href="https://router.vuejs.org/guide/essentials/route-matching-syntax.html#Repeatable-params" target="_blank" rel="noopener">Read more.</a>
+</li>
 </ul>
 <blockquote>
 <p>Warning! When we do a soft 404 page it won&rsquo;t actually result in 404 HTTP response code to the client. This will impact SEO as the browser will see <code>200 OK</code> response status. Which indicates that page actually exists and could be indexed.</p>
@@ -292,14 +293,18 @@ const routes: RouteRecordRaw[] = [ { path: &#39;/&#39;, component: HomePage, nam
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">name</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;not_found_page&#39;</span>,
 </span></span><span style="display:flex;"><span>  },
 </span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">path</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/:catchAll(.*)*&#39;</span>, <span style="color:#a6e22e">redirect</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;/404.html&#39;</span> },
-</span></span></code></pre></div><p>This redirect is crucial because it initiates a new browser request for <code>/404.html</code>. This allows your server (e.g., Load Balancer/CDN, as detailed in my article about <a href="%28/hosting-single-page-applications-on-gcp/%29">hosting SPA applications on GCP</a>
+</span></span></code></pre></div><p>This redirect is crucial because it initiates a new browser request for <code>/404.html</code>. This allows your server (e.g., Load Balancer/CDN, as detailed in my article about <a href="/hosting-single-page-applications-on-gcp/">hosting SPA applications on GCP</a>
 ) to intercept the non-existent file request and return the necessary 404 HTTP status code to the client.</p>
 <h2 id="going-deeper">Going deeper</h2>
 <p>Question: what will happen if we put our <code>catchAll</code> entry at the begging of the route&rsquo;s list? Think about it for a moment and read on.</p>
 <hr>
-<p>I&rsquo;ve read that those routes are evaluated in order as defined, this could make sense, as it is simple and clear but while testing it didn&rsquo;t work at all. Turns out it&rsquo;s not as simple and entries are matched by their weight (or rank), from less to more complex ones. This ensures that a specific route like <code>/about</code> is always matched before the generic catch-all route, regardless of definition order. Current weights can be found in <a href="https://github.com/vuejs/router/blob/main/packages/router/src/matcher/pathParserRanker.ts#L102" target="_blank" rel="noopener">vue-router&rsquo;s code</a>
-.</p>
+<p>I&rsquo;ve read that those routes are evaluated in order as defined, this could make sense, as it is simple and clear but while testing it didn&rsquo;t work at all. Turns out it&rsquo;s not as simple and entries are matched by their weight (or rank), from less to more complex ones. This ensures that a specific route like <code>/about</code> is always matched before the generic catch-all route, regardless of definition order. Current weights can be found in <a href="https://github.com/vuejs/router/blob/main/packages/router/src/matcher/pathParserRanker.ts#L102" target="_blank" rel="noopener">vue-router&rsquo;s code.</a>
+</p>
 <p>Thanks for reading :)</p>
+<ul>
+<li><a href="https://router.vuejs.org/guide/essentials/dynamic-matching.html#Catch-all-404-Not-found-Route" target="_blank" rel="noopener">Vue 404 route documentation</a>
+</li>
+</ul>
  </content>
 
 <div style="font-size:0.8em;display:flex;gap:16px;justify-content:center;">
