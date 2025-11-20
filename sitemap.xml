@@ -3,12 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.melkorm.dev/</loc>
-    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/blog/</loc>
-    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/about/</loc>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/fedora/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/fixing-selinux-and-kernel-blacklist-issues-for-l2tp-vpns-on-fedora/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/l2tp/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/l2tp_netlink/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/l2tp_ppp/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/linux/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/networkmanager/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tag/selinux/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
+  </url><url>
+    <loc>https://blog.melkorm.dev/tags/</loc>
+    <lastmod>2025-11-21T00:07:44+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/tag/404/</loc>
     <lastmod>2025-11-18T01:21:25+01:00</lastmod>
@@ -26,9 +53,6 @@
     <lastmod>2025-11-18T01:21:25+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/tag/seo/</loc>
-    <lastmod>2025-11-18T01:21:25+01:00</lastmod>
-  </url><url>
-    <loc>https://blog.melkorm.dev/tags/</loc>
     <lastmod>2025-11-18T01:21:25+01:00</lastmod>
   </url><url>
     <loc>https://blog.melkorm.dev/tag/vue/</loc>
